@@ -232,15 +232,16 @@ export default class FileSystemContextMenu extends Mixins(StateMixin, FilesMixin
   }
 
   get canPrint () {
-    return (
-      this.root === 'gcodes' &&
-      !Array.isArray(this.file) &&
-      this.file.type !== 'directory' &&
-      this.rootProperties.accepts.includes(this.file.extension)
-      this.file.extension === '.zip'
-    )
-  }
-
+	  return (
+		this.root === 'gcodes' &&
+		!Array.isArray(this.file) &&
+		this.file.type !== 'directory' &&
+		(
+		  this.rootProperties.accepts.includes(this.file.extension) ||
+		  this.file.extension === '.zip'
+		)
+	  )
+	}
   get canEdit () {
     return (
       !Array.isArray(this.file) &&
