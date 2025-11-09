@@ -237,6 +237,7 @@ export default class FileSystemContextMenu extends Mixins(StateMixin, FilesMixin
       !Array.isArray(this.file) &&
       this.file.type !== 'directory' &&
       this.rootProperties.accepts.includes(this.file.extension)
+      this.file.extension === '.zip'
     )
   }
 
